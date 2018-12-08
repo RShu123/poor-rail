@@ -10,3 +10,6 @@
 /.recommenders/
 
 *.iml
+*.project
+*.classpath
+*/target/**
