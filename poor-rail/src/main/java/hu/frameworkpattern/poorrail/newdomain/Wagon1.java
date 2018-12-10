@@ -13,7 +13,7 @@ public class Wagon1 implements newWagon {
 		type = "wagon";
 		color = "orange";
 	}
-	
+
 	public int getStoel() {
 		return aantalStoelen;
 	}
@@ -27,7 +27,6 @@ public class Wagon1 implements newWagon {
 	
 	public String toString() {
     	String s = naam + " met aantal stoelen: " + aantalStoelen;
-    	
     	return s;
     }
 

@@ -6,20 +6,20 @@ public class Wagon3 implements newWagon {
 	private int aantalStoelen;
 	private String type;
 	private String color;
-	
-	public Wagon3(String nm, int stoel) {
+
+	public Wagon3(String nm) {
 		naam = nm;
-		aantalStoelen = stoel;
+		aantalStoelen = 40;
 		type = "wagon";
 		color = "green";
 	}
 
 	public int getStoel() {
-		throw new RuntimeException("Method implementation required");
+		return aantalStoelen;
 	}
 
 	public String getNaam() {
-		throw new RuntimeException("Method implementation required");
+		return naam;
 	}
 
 	public void delete() {
@@ -28,7 +28,6 @@ public class Wagon3 implements newWagon {
 	
 	public String toString() {
     	String s = naam + " met aantal stoelen: " + aantalStoelen;
-    	
     	return s;
     }
 

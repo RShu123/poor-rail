@@ -1,7 +1,7 @@
 package hu.frameworkpattern.poorrail.newdomain;
 
 public interface newWagon {
-	
+
 	public int getStoel();
 	
 	public String getNaam();
