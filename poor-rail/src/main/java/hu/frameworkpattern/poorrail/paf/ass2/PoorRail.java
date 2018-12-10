@@ -1,51 +1,37 @@
 package hu.frameworkpattern.poorrail.paf.ass2;
 
-import java.awt.BorderLayout;
-import java.util.HashMap;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
+import hu.frameworkpattern.poorrail.model.Shape;
+
+import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
-import javax.swing.BorderFactory;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-
-import javax.swing.WindowConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.SwingUtilities;
+import static hu.frameworkpattern.poorrail.paf.ass2.util.StringUtils.isNotEmpty;
 
 
 /**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing RichRail Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
-public class PoorRail extends javax.swing.JFrame implements ActionListener 
+ * This code was edited or generated using CloudGarden's Jigloo
+ * SWT/Swing GUI Builder, which is free for non-commercial
+ * use. If Jigloo is being used commercially (ie, by a corporation,
+ * company or business for any purpose whatever) then you
+ * should purchase a license for each developer using Jigloo.
+ * Please visit www.cloudgarden.com for details.
+ * Use of Jigloo implies acceptance of these licensing terms.
+ * A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
+ * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
+ * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
+ */
+public class PoorRail extends javax.swing.JFrame implements ActionListener
 {
 	private JPanel jPanel1;
 	private JTextPane tpTextTrain;
 	private JButton btnDeleteWagon3;
 	private JButton btnDeleteWagon2;
 	private JButton btnDeleteWagon1;
-	private JButton jButton1;
+	private JButton btnAddWagon3;
 	private JPanel pnlWagons;
 	private JButton btnAddWagon2;
 	private JButton btnAddWagon1;
@@ -57,38 +43,21 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 	private JTextField tfNewTrain;
 	private JPanel jPanel2;
 	private JPanel drawPanel;
-	
+
 	private HashMap numberOfWagons;
 	private int currentNumberOfWagons;
 	private int currentTrain = -1;
 	private int OFFSET = 100;
 	private int TRAINLENGTH = 100;
 
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) 
-	{
-		SwingUtilities.invokeLater(new Runnable() 
-		{
-			public void run() 
-			{
-				PoorRail inst = new PoorRail();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
-	
-	public PoorRail() 
+	public PoorRail()
 	{
 		super();
 		initGUI();
 	}
-	
-	private void initGUI() 
-	{
-		try 
+
+	private void initGUI() {
+		try
 		{
 			this.setTitle("PoorRail");
 			GridBagLayout thisLayout = new GridBagLayout();
@@ -135,9 +104,9 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 					btnNewTrain.addActionListener(this);
 				}
 				{
-					ComboBoxModel cbAllTrainsModel = 
-						new DefaultComboBoxModel(
-								new String[] { });
+					ComboBoxModel cbAllTrainsModel =
+							new DefaultComboBoxModel(
+									new String[]{});
 					cbAllTrains = new JComboBox();
 				/*	GridLayout cbAllTrainsLayout = new GridLayout(1, 1);
 					cbAllTrainsLayout.setColumns(1);
@@ -170,57 +139,38 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 				jPanel3Layout.columnWidths = new int[] {7, 7, 7, 7};
 				pnlWagons.setLayout(jPanel3Layout);
 				pnlWagons.setBorder(BorderFactory.createEtchedBorder(BevelBorder.LOWERED));
+
+
 				{
 					tfCurrentTrain = new JTextField();
 					pnlWagons.add(tfCurrentTrain, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 					tfCurrentTrain.setText("selected: ");
 				}
-				{
-					btnAddWagon1 = new JButton();
-					pnlWagons.add(btnAddWagon1, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					btnAddWagon1.setText("add wagon 86");
-					btnAddWagon1.addActionListener(this);
-				}
-				{
-					btnAddWagon2 = new JButton();
-					pnlWagons.add(btnAddWagon2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					btnAddWagon2.setText("add wagon 2");
-					btnAddWagon2.addActionListener(this);
-				}
-				{
-					jButton1 = new JButton();
-					pnlWagons.add(jButton1, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					jButton1.setText("add wagon 3");
-					jButton1.addActionListener(this);
-				}
-				{
-					btnDeleteWagon1 = new JButton();
-					pnlWagons.add(btnDeleteWagon1, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					btnDeleteWagon1.setText("delete wagon 1");
-					btnDeleteWagon1.addActionListener(this);
-				}
-				{
-					btnDeleteWagon2 = new JButton();
-					pnlWagons.add(btnDeleteWagon2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					btnDeleteWagon2.setText("delete wagon 2");
-					btnDeleteWagon2.addActionListener(this);
-				}
-				{
-					btnDeleteWagon3 = new JButton();
-					pnlWagons.add(btnDeleteWagon3, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-					btnDeleteWagon3.setText("delete wagon 3");
-					btnDeleteWagon3.addActionListener(this);
-				}
+
+				btnAddWagon1 = createButton("add wagon 1", 1, 0, 1, 1, GridBagConstraints.NONE);
+				btnAddWagon2 = createButton("add wagon 2", 1, 1, 1, 1, GridBagConstraints.NONE);
+				btnAddWagon3 = createButton("add wagon 3", 1, 2, 1, 1, GridBagConstraints.NONE);
+				btnDeleteWagon1 = createButton("delete wagon 1", 2, 0, 1, 1, GridBagConstraints.NONE);
+				btnDeleteWagon2 = createButton("delete wagon 2", 2, 1, 1, 1, GridBagConstraints.NONE);
+				btnDeleteWagon3 = createButton("delete wagon 3", 2, 2, 1, 1, GridBagConstraints.NONE);
 			}
 			pack();
 			setSize(800, 600);
 			numberOfWagons = new HashMap();
-		} catch (Exception e) 
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
+
+	private JButton createButton(String title, int x, int y, int width, int height, int fill) {
+		JButton button = new JButton();
+		pnlWagons.add(button, new GridBagConstraints(x, y, width, height, 0.0, 0.0, GridBagConstraints.CENTER, fill, new Insets(0, 0, 0, 0), 0, 0));
+		button.setText(title);
+		button.addActionListener(this);
+		return button;
+	}
+
 	public void actionPerformed(ActionEvent event)
 	{
 		if (event.getSource()== btnNewTrain)
@@ -252,7 +202,7 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 				catch (Exception e)
 				{
 					currentNumberOfWagons = 0;
-				}			
+				}
 			}
 		}
 		else if (event.getSource() == btnDeleteTrain)
@@ -284,8 +234,7 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 		{
 			currentNumberOfWagons++;
 			drawWagon("Wagon2");
-		}
-		else if (event.getSource() == jButton1)
+		} else if (event.getSource() == btnAddWagon3)
 		{
 			currentNumberOfWagons++;
 			drawWagon("Wagon3");
@@ -293,18 +242,17 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 		else if (event.getSource() == btnDeleteWagon1)
 		{
 			repaint(30+TRAINLENGTH,80+currentTrain*OFFSET,1,1);
-			currentNumberOfWagons =- 1;
 		}
 		else if (event.getSource() == btnDeleteWagon2)
 		{
-			repaint(30+TRAINLENGTH,80+currentTrain*OFFSET,1,1);		
+			repaint(30 + TRAINLENGTH, 80 + currentTrain * OFFSET, 1, 1);
 		}
 		else if (event.getSource() == btnDeleteWagon3)
 		{
-			repaint(30+TRAINLENGTH,80+currentTrain*OFFSET,1,1);		
+			repaint(30 + TRAINLENGTH, 80 + currentTrain * OFFSET, 1, 1);
 		}
 	}
-	
+
 	public String addTrain(String train)
 	{
 		String t = "";
@@ -335,27 +283,31 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 		{
 		}
 		return t;
-			
+
 	}
-	
-	public void drawTrain(String train) 
-	{
-		if (train != "")
-		{
-			Graphics g = drawPanel.getGraphics();
-			g.setColor(Color.LIGHT_GRAY);
-			g.fillRect(30,80+currentTrain*OFFSET,80,40);
-			g.fillRect(80,60+currentTrain*OFFSET,30,30);
-			g.drawRoundRect(85, 40+currentTrain*OFFSET, 20, 20, 20, 20);
-			g.drawRoundRect(85, currentTrain*OFFSET, 40, 40, 40, 40);
-			g.setColor(Color.BLACK);
-			g.fillRoundRect(35, 120+currentTrain*OFFSET, 20, 20, 20, 20);
-			g.fillRoundRect(80, 120+currentTrain*OFFSET, 20, 20, 20, 20);
-			g.drawString(train,40,105+currentTrain*OFFSET);
+
+	public void drawTrain(String train) {
+		if (isNotEmpty(train)) {
+			Graphics graphics = drawPanel.getGraphics();
+			graphics.setColor(Color.LIGHT_GRAY);
+
+			fillRectangle(graphics, new Shape(30, 80 + currentTrain * OFFSET, 80, 40));
+			graphics.fillRect(30, 80 + currentTrain * OFFSET, 80, 40);
+			graphics.fillRect(80, 60 + currentTrain * OFFSET, 30, 30);
+			graphics.drawRoundRect(85, 40 + currentTrain * OFFSET, 20, 20, 20, 20);
+			graphics.drawRoundRect(85, currentTrain * OFFSET, 40, 40, 40, 40);
+			graphics.setColor(Color.BLACK);
+			graphics.fillRoundRect(35, 120 + currentTrain * OFFSET, 20, 20, 20, 20);
+			graphics.fillRoundRect(80, 120 + currentTrain * OFFSET, 20, 20, 20, 20);
+			graphics.drawString(train, 40, 105 + currentTrain * OFFSET);
 		}
-    }
-	
-	public void drawWagon(String wagon) 
+	}
+
+	private void fillRectangle(Graphics graphics, Shape shape) {
+		graphics.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+	}
+
+	public void drawWagon(String wagon)
 	{
 		Graphics g = drawPanel.getGraphics();
 		g.setColor(Color.LIGHT_GRAY);
@@ -364,5 +316,5 @@ public class PoorRail extends javax.swing.JFrame implements ActionListener
 		g.fillRoundRect(35+currentNumberOfWagons*TRAINLENGTH, 120+currentTrain*OFFSET, 20, 20, 20, 20);
 		g.fillRoundRect(80+currentNumberOfWagons*TRAINLENGTH, 120+currentTrain*OFFSET, 20, 20, 20, 20);
 		g.drawString(wagon,40+currentNumberOfWagons*TRAINLENGTH,105+currentTrain*OFFSET);
-    }
+	}
 }
