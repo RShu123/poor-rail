@@ -2,12 +2,11 @@ package hu.frameworkpattern.poorrail.newdomain;
 
 public interface newWagon {
 
-	public int getStoel();
-	
+
+	public long getStoel();
+
 	public String getNaam();
 	
 	public void delete();
-	
-	public String toString();
 
 }

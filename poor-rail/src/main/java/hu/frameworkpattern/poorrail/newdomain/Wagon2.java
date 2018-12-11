@@ -3,18 +3,18 @@ package hu.frameworkpattern.poorrail.newdomain;
 public class Wagon2 implements newWagon {
 	
 	private String naam;
-	private int aantalStoelen;
+	private long aantalStoelen;
 	private String type;
 	private String color;
 
-	public Wagon2(String nm) {
-		naam = nm;
-		aantalStoelen = 10;
+	public Wagon2(String naam, long aantalStoelen) {
+		this.naam = naam;
+		this.aantalStoelen = aantalStoelen;
 		type = "wagon";
 		color = "blue";
 	}
 
-	public int getStoel() {
+	public long getStoel() {
 		return aantalStoelen;
 	}
 
