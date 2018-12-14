@@ -8,7 +8,7 @@ public class FactoryPattern {
 
         System.out.println(wagon1);
 
-        newWagon wagon2 = wagonFactory.getWagon(500);
+        newWagon wagon2 = wagonFactory.getWagon(350);
 
         System.out.println(wagon2);
 
