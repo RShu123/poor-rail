@@ -5,8 +5,8 @@ import hu.frameworkpattern.poorrail.Domain.Locomotief;
 import java.util.ArrayList;
 
 public class LocomotiefFactory {
+
     private ArrayList<Locomotief> alleLocomotieven = new ArrayList<>();
-    private Locomotief locomotyfus = new Locomotief("test");
     boolean locomotiefExists = false;
 
     public void checkIfExists(String naam) {
@@ -17,30 +17,39 @@ public class LocomotiefFactory {
         }
     }
 
-    public Locomotief makeLocomotief(String command) {
-        String[] splitted = command.split(" ");
-        String naam = splitted[2];
+    public Locomotief makeLocomotief(String command) throws ArrayIndexOutOfBoundsException {
+        if (command.startsWith("new")) {
+            String[] splitted = command.split(" ");
+            String naam = splitted[2];
 
-        checkIfExists(naam);
+            checkIfExists(naam);
 
-        if (command.startsWith("new train")) {
-            if (!locomotiefExists) {
-                Locomotief locomotief = new Locomotief(naam);
-                alleLocomotieven.add(locomotief);
-                return locomotief;
+            if (command.startsWith("new train")) {
+                if (!locomotiefExists) {
+                    Locomotief locomotief = new Locomotief(naam);
+                    alleLocomotieven.add(locomotief);
+                    return locomotief;
+                }
+
             }
-
         }
         return null;
 
     }
 
-    public String getList() {
-        String s = "";
-        for (Locomotief loco : alleLocomotieven) {
-            s += loco + "\t";
-        }
-        return s;
+    public ArrayList<Locomotief> getList() {
+        return alleLocomotieven;
 
     }
+
+    public int getListIndex() {
+        int index = alleLocomotieven.size();
+        return index;
+    }
+
+    public void deleteLocomotief(Locomotief loco) {
+        this.alleLocomotieven.remove(loco);
+    }
+
+
 }

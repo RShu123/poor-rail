@@ -1,12 +1,14 @@
 package hu.frameworkpattern.poorrail.newdomain;
 
-public interface newWagon {
+public interface Wagon {
 
 
-	public long getStoel();
+    public long getAantalStoelen();
 
 	public String getNaam();
 	
 	public void delete();
+
+    public Chair getChair();
 
 }

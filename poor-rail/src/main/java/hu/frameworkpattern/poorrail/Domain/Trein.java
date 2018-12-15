@@ -3,6 +3,7 @@ package hu.frameworkpattern.poorrail.Domain;
 import java.util.ArrayList;
 
 public class Trein {
+
     private Locomotief locomotief;
     private ArrayList<Wagon> connectedWagons = new ArrayList<>();
 

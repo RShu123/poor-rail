@@ -1,20 +1,22 @@
 package hu.frameworkpattern.poorrail.newdomain;
 
-public class Wagon1 implements newWagon {
+public class Wagon1 implements Wagon {
 	
 	private String naam;
 	private long aantalStoelen;
 	private String type;
 	private String color;
-	
-	public Wagon1(String nm) {
+    private Chair chair;
+
+    public Wagon1(String nm, Chair newchair) {
 		naam = nm;
 		aantalStoelen = 100;
 		type = "wagon";
 		color = "orange";
-	}
+        chair = newchair;
+    }
 
-	public long getStoel() {
+    public long getAantalStoelen() {
 		return aantalStoelen;
 	}
 
@@ -24,9 +26,14 @@ public class Wagon1 implements newWagon {
 
 	public void delete() {
 	}
-	
+
+    @Override
+    public Chair getChair() {
+        return chair;
+    }
+
 	public String toString() {
-    	String s = naam + " met aantal stoelen: " + aantalStoelen;
+        String s = naam + " met aantal stoelen: " + aantalStoelen + getChair();
     	return s;
     }
 

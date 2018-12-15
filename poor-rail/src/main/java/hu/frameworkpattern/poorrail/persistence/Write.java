@@ -1,59 +1,42 @@
 package hu.frameworkpattern.poorrail.persistence;
 
+import hu.frameworkpattern.poorrail.Domain.Locomotief;
+import hu.frameworkpattern.poorrail.Domain.Wagon;
+import org.json.JSONException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import org.json.JSONException;
-
-import com.google.gson.Gson;
-
-import hu.frameworkpattern.poorrail.model.RichRail;
-import hu.frameworkpattern.poorrail.paf.domain.Train;
-import hu.frameworkpattern.poorrail.paf.domain.Wagon;
 
 public class Write {
-/*	
-	public ArrayList createJsonTrainArray() throws JSONException{
-		Gson json = new Gson();
-		
-		ArrayList<String> jsonTreinen = new ArrayList();
-		
-		for (Train trein : RichRail.Treinen) {
-			String treinObject = json.toJson(trein);
-			jsonTreinen.add(treinObject);
-		}
-		
-	
-		return jsonTreinen;
-		
-	}
-	
-	public ArrayList createJsonWagonArray() throws JSONException{
-		Gson json = new Gson();
-		
-		ArrayList<String> jsonWagons = new ArrayList();
-		
-		for (Wagon wagon : RichRail.Wagons) {
-			String wagonObject = json.toJson(wagon);
-			jsonWagons.add(wagonObject);
-		}
-		
-		return jsonWagons;
-	}
-	
-	public void writeToFile() throws IOException, JSONException{
-		File file = new File("test.txt");
-		FileWriter fw = new FileWriter(file);
-		PrintWriter pw = new PrintWriter(fw);
-				
-		pw.println(createJsonTrainArray());
-		pw.println(createJsonWagonArray());
-		pw.println();
-		
-		pw.close();
-	}
-*/
+
+    private JsonConvert converter = new JsonConvert();
+
+    public void writeToFile(ArrayList<Locomotief> Locomotieven, ArrayList<Wagon> Wagons) throws IOException, JSONException, ParseException {
+        File file = new File("save.txt");
+        FileWriter fw = new FileWriter(file);
+        PrintWriter pw = new PrintWriter(fw);
+        JSONArray finalArray = new JSONArray();
+        JSONObject trainObject = new JSONObject();
+        JSONObject wagonObject = new JSONObject();
+
+        trainObject.put("trains", converter.createJsonTrainArray(Locomotieven));
+        wagonObject.put("wagons", converter.createJsonWagonArray(Wagons));
+
+        finalArray.add(trainObject);
+        finalArray.add(wagonObject);
+
+
+        System.out.println(finalArray);
+        pw.println(finalArray);
+
+        pw.close();
+    }
+
 }

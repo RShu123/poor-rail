@@ -1,26 +1,32 @@
 package hu.frameworkpattern.poorrail.newdomain;
 
-public class Wagon2 implements newWagon {
+public class Wagon2 implements Wagon {
 	
 	private String naam;
 	private long aantalStoelen;
 	private String type;
 	private String color;
+    private Chair chair;
 
-	public Wagon2(String naam, long aantalStoelen) {
+    public Wagon2(String naam, long aantalStoelen, Chair chair) {
 		this.naam = naam;
 		this.aantalStoelen = aantalStoelen;
 		type = "wagon";
 		color = "blue";
 	}
 
-	public long getStoel() {
+    public long getAantalStoelen() {
 		return aantalStoelen;
 	}
 
 	public String getNaam() {
 		return naam;
 	}
+
+    @Override
+    public Chair getChair() {
+        return chair;
+    }
 
 	public void delete() {
 		throw new RuntimeException("Method implementation required");

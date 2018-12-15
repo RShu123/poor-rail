@@ -1,9 +1,11 @@
 package hu.frameworkpattern.poorrail.model;
 
-import java.awt.EventQueue;
+import hu.frameworkpattern.poorrail.Gui.RichRail;
+
+import java.awt.*;
 
 public class Run {
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
