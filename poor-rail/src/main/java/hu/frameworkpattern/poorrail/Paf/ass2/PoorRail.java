@@ -1,4 +1,4 @@
-package hu.frameworkpattern.poorrail.paf.ass2;
+package hu.frameworkpattern.poorrail.Paf.ass2;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;

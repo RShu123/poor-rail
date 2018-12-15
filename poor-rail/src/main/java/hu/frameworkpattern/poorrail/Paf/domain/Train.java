@@ -1,4 +1,4 @@
-package hu.frameworkpattern.poorrail.paf.domain;
+package hu.frameworkpattern.poorrail.Paf.domain;
 
 import java.util.ArrayList;
 

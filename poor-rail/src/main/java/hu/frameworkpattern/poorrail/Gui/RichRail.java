@@ -7,12 +7,12 @@ import hu.frameworkpattern.poorrail.Domain.Train;
 import hu.frameworkpattern.poorrail.Domain.Wagon;
 import hu.frameworkpattern.poorrail.Factory.LocomotiefFactory;
 import hu.frameworkpattern.poorrail.Factory.WagonFactory;
+import hu.frameworkpattern.poorrail.Persistence.JsonConvert;
+import hu.frameworkpattern.poorrail.Persistence.LoadSave;
+import hu.frameworkpattern.poorrail.Persistence.Write;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import persistence.JsonConvert;
-import persistence.LoadSave;
-import persistence.Write;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;

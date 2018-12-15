@@ -1,4 +1,4 @@
-package hu.frameworkpattern.poorrail.persistence;
+package hu.frameworkpattern.poorrail.Persistence;
 
 import hu.frameworkpattern.poorrail.Domain.Locomotief;
 import hu.frameworkpattern.poorrail.Domain.Wagon;
