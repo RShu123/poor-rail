@@ -11,7 +11,7 @@ public class Train extends RailVehicle {
 
     public Train() {
         super();
-        Bestuurtype = new Bestuurbaar();
+        Bestuurtype = new Controllable();
     }
 
     public Train(String nm) {

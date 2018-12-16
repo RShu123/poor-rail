@@ -10,7 +10,7 @@ public class Locomotief extends RailVehicle {
 
     public Locomotief() {
         super();
-        Bestuurtype = new Bestuurbaar();
+        Bestuurtype = new Controllable();
     }
 
 

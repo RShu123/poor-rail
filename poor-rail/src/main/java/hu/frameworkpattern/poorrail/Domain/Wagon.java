@@ -8,7 +8,7 @@ public class Wagon extends RailVehicle {
     public Wagon() {
         super();
 
-        Bestuurtype = new NietBestuurbaar();
+        Bestuurtype = new NottControllable();
     }
 
     public Wagon(String nm) {
