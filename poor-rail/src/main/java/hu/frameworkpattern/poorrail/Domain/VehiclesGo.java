@@ -1,4 +1,4 @@
-package hu.frameworkpattern.poorrail.StrategyPattern;
+package hu.frameworkpattern.poorrail.Domain;
 
 public class VehiclesGo {
 

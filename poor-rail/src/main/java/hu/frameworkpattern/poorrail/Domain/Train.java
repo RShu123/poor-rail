@@ -2,12 +2,17 @@ package hu.frameworkpattern.poorrail.Domain;
 
 import java.util.ArrayList;
 
-public class Train {
+public class Train extends RailVehicles {
 
     private String naam;
     private int aantalStoelen;
     private String type;
     private ArrayList<Wagon> connectedWagons;
+
+    public Train() {
+        super();
+        ControlType = new ItsControllable();
+    }
 
     public Train(String nm) {
         naam = nm;

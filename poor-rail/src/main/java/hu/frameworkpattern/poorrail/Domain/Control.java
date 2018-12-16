@@ -1,4 +1,4 @@
-package hu.frameworkpattern.poorrail.StrategyPattern;
+package hu.frameworkpattern.poorrail.Domain;
 
 public interface Control {
     String controllable();
@@ -14,7 +14,7 @@ class ItsControllable implements Control {
 class ItsNotControllable implements Control {
 
     public String controllable() {
-        return "it is not steerable";
+        return "is not steerable";
     }
 }
 

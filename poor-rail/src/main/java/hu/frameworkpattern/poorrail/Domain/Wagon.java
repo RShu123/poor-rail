@@ -1,11 +1,14 @@
 package hu.frameworkpattern.poorrail.Domain;
 
-public class Wagon {
+public class Wagon extends RailVehicles {
 
     private String naam;
     private long aantalStoelen = 20;
 
     public Wagon() {
+        super();
+
+        ControlType = new ItsNotControllable();
     }
 
     public Wagon(String nm) {
