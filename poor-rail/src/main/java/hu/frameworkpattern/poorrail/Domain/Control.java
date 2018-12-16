@@ -7,14 +7,14 @@ public interface Control {
 class Controllable implements Control {
 
     public String bestuurbaar() {
-        return "is bestuurbaar";
+        return "is bestuurbaar.";
     }
 }
 
 class NottControllable implements Control {
 
     public String bestuurbaar() {
-        return "is niet bestuurbaar";
+        return "is niet bestuurbaar.";
     }
 }
 
