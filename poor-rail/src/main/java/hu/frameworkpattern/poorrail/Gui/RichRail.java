@@ -3,7 +3,7 @@ package hu.frameworkpattern.poorrail.Gui;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import hu.frameworkpattern.poorrail.Commandpattern.*;
 import hu.frameworkpattern.poorrail.Domain.Locomotief;
-import hu.frameworkpattern.poorrail.Domain.Railvoertuig;
+import hu.frameworkpattern.poorrail.Domain.RailVehicle;
 import hu.frameworkpattern.poorrail.Domain.Train;
 import hu.frameworkpattern.poorrail.Domain.Wagon;
 import hu.frameworkpattern.poorrail.Factory.LocomotiefFactory;
@@ -306,9 +306,9 @@ public class RichRail extends JFrame {
     }
 
     private void initializeVehicles() {
-        Railvoertuig r1 = new Train();
-        Railvoertuig r2 = new Wagon();
-        Railvoertuig r3 = new Locomotief();
+        RailVehicle r1 = new Train();
+        RailVehicle r2 = new Wagon();
+        RailVehicle r3 = new Locomotief();
 
         System.out.println("Trein " + r1.proberenTeBesturen());
         System.out.println("Wagon " + r2.proberenTeBesturen());

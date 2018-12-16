@@ -1,17 +1,17 @@
 package hu.frameworkpattern.poorrail.Domain;
 
-public interface Besturen {
+public interface Control {
     String bestuurbaar();
 }
 
-class Bestuurbaar implements Besturen {
+class Controllable implements Control {
 
     public String bestuurbaar() {
         return "is steerable";
     }
 }
 
-class NietBestuurbaar implements Besturen {
+class NottControllable implements Control {
 
     public String bestuurbaar() {
         return "is not steerable";

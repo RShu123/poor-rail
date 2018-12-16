@@ -2,7 +2,7 @@ package hu.frameworkpattern.poorrail.Domain;
 
 import java.util.ArrayList;
 
-public class Locomotief extends Railvoertuig {
+public class Locomotief extends RailVehicle {
 
     private String naam;
     private int aantalStoelen;

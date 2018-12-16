@@ -1,6 +1,6 @@
 package hu.frameworkpattern.poorrail.Domain;
 
-public class Railvoertuig {
+public class RailVehicle {
 
     public Besturen Bestuurtype;
 

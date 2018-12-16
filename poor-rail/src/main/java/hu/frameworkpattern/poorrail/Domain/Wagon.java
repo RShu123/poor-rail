@@ -1,6 +1,6 @@
 package hu.frameworkpattern.poorrail.Domain;
 
-public class Wagon extends Railvoertuig {
+public class Wagon extends RailVehicle {
 
     private String naam;
     private long aantalStoelen = 20;
