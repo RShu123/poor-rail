@@ -2,11 +2,17 @@ package hu.frameworkpattern.poorrail.Domain;
 
 import java.util.ArrayList;
 
-public class Locomotief {
+public class Locomotief extends Railvoertuig {
 
     private String naam;
     private int aantalStoelen;
     private ArrayList<Wagon> connectedWagons;
+
+    public Locomotief() {
+        super();
+        Bestuurtype = new Bestuurbaar();
+    }
+
 
     public Locomotief(String nm) {
         naam = nm;

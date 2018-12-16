@@ -2,7 +2,7 @@ package hu.frameworkpattern.poorrail.Domain;
 
 import java.util.ArrayList;
 
-public class Train extends RailVehicles {
+public class Train extends Railvoertuig {
 
     private String naam;
     private int aantalStoelen;
@@ -11,7 +11,7 @@ public class Train extends RailVehicles {
 
     public Train() {
         super();
-        ControlType = new ItsControllable();
+        Bestuurtype = new Bestuurbaar();
     }
 
     public Train(String nm) {

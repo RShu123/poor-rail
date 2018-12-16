@@ -3,6 +3,7 @@ package hu.frameworkpattern.poorrail.Gui;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import hu.frameworkpattern.poorrail.Commandpattern.*;
 import hu.frameworkpattern.poorrail.Domain.Locomotief;
+import hu.frameworkpattern.poorrail.Domain.Railvoertuig;
 import hu.frameworkpattern.poorrail.Domain.Train;
 import hu.frameworkpattern.poorrail.Domain.Wagon;
 import hu.frameworkpattern.poorrail.Factory.LocomotiefFactory;
@@ -57,6 +58,7 @@ public class RichRail extends JFrame {
 
     public JSONObject jobTrain = new JSONObject();
     public JSONObject jobWagon = new JSONObject();
+
 
 
     private LoadSave loader = new LoadSave();
@@ -132,8 +134,9 @@ public class RichRail extends JFrame {
             }
         });
         lowPanel.add(executeBtn);
-    }
 
+        initializeVehicles();
+    }
 
     public void printCommand(String command) throws JSONException, ParseException {
         Graphics output = outputPanel.getGraphics();
@@ -274,6 +277,7 @@ public class RichRail extends JFrame {
         }
     }
 
+
     public void drawTrain(String train) {
         currentTrain = locomotiefFactory.getListIndex() - 1;
         Graphics g = drawPanel.getGraphics();
@@ -299,6 +303,16 @@ public class RichRail extends JFrame {
         g.drawString(wagon, 50 + currentNumberOfWagons * TRAINLENGTH, 105 + currentTrain * OFFSET);
         wagonPosition = locomotiefFactory.getList().indexOf(train);
         System.out.println(wagonPosition);
+    }
+
+    private void initializeVehicles() {
+        Railvoertuig r1 = new Train();
+        Railvoertuig r2 = new Wagon();
+        Railvoertuig r3 = new Locomotief();
+
+        System.out.println("Trein " + r1.proberenTeBesturen());
+        System.out.println("Wagon " + r2.proberenTeBesturen());
+        System.out.println("Locomotief " + r3.proberenTeBesturen());
     }
 
 

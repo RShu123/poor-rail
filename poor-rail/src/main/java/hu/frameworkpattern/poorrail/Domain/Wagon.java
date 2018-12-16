@@ -1,6 +1,6 @@
 package hu.frameworkpattern.poorrail.Domain;
 
-public class Wagon extends RailVehicles {
+public class Wagon extends Railvoertuig {
 
     private String naam;
     private long aantalStoelen = 20;
@@ -8,7 +8,7 @@ public class Wagon extends RailVehicles {
     public Wagon() {
         super();
 
-        ControlType = new ItsNotControllable();
+        Bestuurtype = new NietBestuurbaar();
     }
 
     public Wagon(String nm) {
